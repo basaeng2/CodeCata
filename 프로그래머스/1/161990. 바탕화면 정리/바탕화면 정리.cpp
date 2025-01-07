@@ -6,26 +6,24 @@ using namespace std;
 
 vector<int> solution(vector<string> wallpaper) {
     vector<int> answer;
-    vector<pair<int,int>> index;
-    for(int i = 0; i < wallpaper.size(); i++)
-    {
-        for(int j = 0; j < wallpaper[i].size(); j++)
-        if(wallpaper[i][j] == '#')
-            index.push_back(make_pair(i,j));
-    }
     
     int lux = INT_MAX;
     int luy = INT_MAX;
     int rdx = INT_MIN;
     int rdy = INT_MIN;
     
-    for(int i = 0; i < index.size(); i++)
+    vector<int> index = {lux, luy, rdx, rdy};
+    for(int i = 0; i < wallpaper.size(); i++)
     {
-        if(lux > index[i].first) lux = index[i].first;
-        if(rdx < index[i].first) rdx = index[i].first;
-        if(luy > index[i].second) luy = index[i].second;
-        if(rdy < index[i].second) rdy = index[i].second;
-    }   
+        for(int j = 0; j < wallpaper[i].size(); j++)
+        if(wallpaper[i][j] == '#')
+        {
+            lux = min(lux, i);
+            luy = min(luy, j);
+            rdx = max(rdx, i);
+            rdy = max(rdy, j);
+        }
+    }
     
     answer.push_back(lux);
     answer.push_back(luy);
