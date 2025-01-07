@@ -13,7 +13,7 @@ string solution(string s, string skip, int index) {
     for(int i = 0; i < 26; i ++)
     {
         char ch = 'a' + i;
-        if(skip.find(ch) == string::npos)
+        if(find(skip.begin(), skip.end(), ch) == skip.end())
          Alphabet.push_back(ch);
     }
     
