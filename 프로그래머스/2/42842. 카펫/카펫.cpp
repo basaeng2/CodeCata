@@ -8,7 +8,7 @@ vector<int> solution(int brown, int yellow) {
     int width, height;
     int total = brown + yellow;
     
-    for(height = 3; height <= total / 3; height++)
+    for(height = 3; height <= total; height++)
     {
         if(total % height == 0)
         {
