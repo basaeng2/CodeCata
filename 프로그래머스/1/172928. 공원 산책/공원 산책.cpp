@@ -8,9 +8,12 @@ vector<int> solution(vector<string> park, vector<string> routes) {
     int width = park[0].size();
     int start_row = 0, start_col = 0;
 
-    for (int i = 0; i < height; ++i) {
-        for (int j = 0; j < width; ++j) {
-            if (park[i][j] == 'S') {
+    for (int i = 0; i < height; ++i)
+    {
+        for (int j = 0; j < width; ++j)
+        {
+            if (park[i][j] == 'S')
+            {
                 start_row = i;
                 start_col = j;
                 break;
@@ -21,13 +24,16 @@ vector<int> solution(vector<string> park, vector<string> routes) {
     vector<pair<int, int>> directions = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
     char dir_map[4] = {'E', 'W', 'S', 'N'};
 
-    for (const string& route : routes) {
+    for (const string& route : routes)
+    {
         char op = route[0];
         int dist = stoi(route.substr(2));
         int dir_idx = 0;
 
-        for (int i = 0; i < 4; ++i) {
-            if (dir_map[i] == op) {
+        for (int i = 0; i < 4; ++i)
+        {
+            if (dir_map[i] == op)
+            {
                 dir_idx = i;
                 break;
             }
@@ -38,17 +44,20 @@ vector<int> solution(vector<string> park, vector<string> routes) {
 
         int new_row = start_row, new_col = start_col;
         bool valid = true;
-        for (int step = 1; step <= dist; ++step) {
+        for (int step = 1; step <= dist; ++step)
+        {
             new_row += d_row;
             new_col += d_col;
 
-            if (new_row < 0 || new_row >= height || new_col < 0 || new_col >= width || park[new_row][new_col] == 'X') {
+            if (new_row < 0 || new_row >= height || new_col < 0 || new_col >= width || park[new_row][new_col] == 'X')
+            {
                 valid = false;
                 break;
             }
         }
         
-        if (valid) {
+        if (valid)
+        {
             start_row = new_row;
             start_col = new_col;
         }
