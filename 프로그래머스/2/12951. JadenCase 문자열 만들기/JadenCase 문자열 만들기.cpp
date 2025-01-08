@@ -12,10 +12,10 @@ string solution(string s) {
             answer += c;
             isFirstword = true;
         } else if (isFirstword) {
-            answer += (c >= 'a' && c <= 'z') ? c - ('a' - 'A') : c;
+            answer += (c >= 'a' && c <= 'z') ? toupper(c) : c;
             isFirstword = false;
         } else {
-            answer += (c >= 'A' && c <= 'Z') ? c + ('a' - 'A') : c;
+            answer += (c >= 'A' && c <= 'Z') ? tolower(c) : c;
         }
     }
 
