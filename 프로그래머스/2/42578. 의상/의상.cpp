@@ -13,6 +13,7 @@ int solution(vector<vector<string>> clothes) {
     }
     for(auto& it : cloth)
     {
+        // +1은 그 종류의 옷을 "입지 않는 경우"를 의미
         answer *= it.second + 1;
     }
     
